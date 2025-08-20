@@ -1,0 +1,34 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "evennia:start",
+      "type": "shell",
+      "command": "bash",
+      "args": ["-lc", "source .venv/bin/activate && evennia start"],
+      "problemMatcher": []
+    },
+    {
+      "label": "evennia:stop",
+      "type": "shell",
+      "command": "bash",
+      "args": ["-lc", "source .venv/bin/activate && evennia stop"],
+      "problemMatcher": []
+    },
+    {
+      "label": "evennia:restart",
+      "type": "shell",
+      "command": "bash",
+      "args": ["-lc", "source .venv/bin/activate && evennia restart"],
+      "problemMatcher": []
+    },
+    {
+      "label": "evennia:tail logs",
+      "type": "shell",
+      "command": "bash",
+      "args": ["-lc", "tail -n 200 -F server/logs/server.log"],
+      "presentation": { "reveal": "always", "panel": "new" },
+      "problemMatcher": []
+    }
+  ]
+}
