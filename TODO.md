@@ -19,6 +19,15 @@ Add telemetry/server.py, then run telemetry:install → telemetry:start → tele
 - [ ] …
 
 ## DONE (recent)
+### Session accomplishments — 2025-08-22 12:04 PDT
+- [x] `tools/ev.sh` created + `chmod +x`; start/stop/restart/status/tail/force-stop/open-web wired.
+- [x] `commands/ping.py` implemented; `CmdPing` registered once per cmdset; verified `ping → PONG` in MushClient/webclient.
+- [x] Keybinding conflicts fixed; ops/ADR/doc hotkeys added.
+- [x] `docs/OPERATIONS.md` added; Transition Score formula added to `docs/WORKFLOW.md`.
+- [x] Telemetry scaffold: `telemetry/server.py` added; VS Code tasks: `telemetry:install`, `telemetry:start`, `telemetry:open dashboard`.
+- [x] Dev profiling task added: `dev:profile reload` + `.vscode/importtime_summary.py`.
+- [x] `TODO.md` hygiene: ACKed ping items into **DONE**; removed from **NOW**.
+- [x] `tools/todo-ack.sh` added (+ task `todo:ack`); `tasks.json` validated.
 - [x] Register `CmdPing` once per cmdset (Character, Account, Unloggedin).
 - [x] Evennia portal/server running clean after reload (no import errors).
 - [x] Verified `ping` → `PONG from Evennia!` in MushClient (localhost:4000) and webclient (http://localhost:4001).
