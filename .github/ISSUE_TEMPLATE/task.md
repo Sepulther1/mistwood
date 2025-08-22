@@ -1,13 +1,13 @@
 ---
 name: Task
-about: small unit of work
+about: Small unit of work
 labels: P2, area:infra
 ---
 ## Summary
-...
+…
 
-##Acceptance
-- [ ] ...
+## Acceptance
+- [ ] …
 
 ## Links
 Related: #
