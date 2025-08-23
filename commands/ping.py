@@ -2,12 +2,8 @@ from evennia import Command
 
 class CmdPing(Command):
     """
-    ping
-
-    Usage:
-      ping
-
-    Replies with a quick PONG so you can test hot-reload and clients.
+    ping — quick connectivity test
+    Usage: ping
     """
     key = "ping"
     locks = "cmd:all()"

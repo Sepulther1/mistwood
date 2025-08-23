@@ -42,3 +42,8 @@ try:
     from server.conf.secret_settings import *
 except ImportError:
     print("secret_settings.py file not found or failed to import.")
+
+
+TELNET_PORTS = [4000]
+WEBSERVER_PORTS = [(4001, 4005)]
+WEBSOCKET_CLIENT_PORTS = [4002]

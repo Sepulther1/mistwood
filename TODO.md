@@ -19,6 +19,17 @@ Add telemetry/server.py, then run telemetry:install → telemetry:start → tele
 - [ ] …
 
 ## DONE (recent)
+### Session accomplishments — 2025-08-22 18:16 PDT
+- [x] Fixed WEBSERVER_PORTS tuple
+- [x] Restored default_cmdsets.py
+- [x] Wired @rld
+- [x] Telemetry tasks verified
+### Session accomplishments — 2025-08-22 17:35 PDT
+- [x] Fixed WEBSERVER_PORTS tuple
+- [x] Replaced default_cmdsets.py
+- [x] Wired @rld
+- [x] Added issue template
+- [x] review-ack script working
 ### Session accomplishments — 2025-08-22 13:01 PDT
 - [x] Fixed Evennia ports: WEBSERVER_PORTS = [(4001, 4005)] → Server RUNNING; wired @rld hot-reload; added GitHub task template; ack hotkey set.
 ### Session accomplishments — 2025-08-22 12:04 PDT
