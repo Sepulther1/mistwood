@@ -19,6 +19,11 @@ Add telemetry/server.py, then run telemetry:install → telemetry:start → tele
 - [ ] …
 
 ## DONE (recent)
+### Session accomplishments — 2025-08-22 18:21 PDT
+- [x] Fixed WEBSERVER_PORTS tuple
+- [x] Wired @rld
+- [x] Added GitHub task template
+- [x] Review-ack script working
 ### Session accomplishments — 2025-08-22 18:16 PDT
 - [x] Fixed WEBSERVER_PORTS tuple
 - [x] Restored default_cmdsets.py

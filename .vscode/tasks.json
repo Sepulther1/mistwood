@@ -1,34 +1,185 @@
 {
   "version": "2.0.0",
+  "options": { "cwd": "${workspaceFolder}" },
+
   "tasks": [
     {
       "label": "evennia:start",
       "type": "shell",
       "command": "bash",
-      "args": ["-lc", "source .venv/bin/activate && evennia start"],
+      "args": ["-lc", "tools/ev.sh start"],
+      "presentation": {
+        "panel": "shared",
+        "reveal": "always",
+        "focus": true,
+        "clear": true,
+        "showReuseMessage": false
+      },
+      "group": { "kind": "build", "isDefault": true },
       "problemMatcher": []
     },
+
+    // >>> DEV: import-time profile (BEGIN)
+    {
+      "label": "dev:profile reload",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-lc",
+        "cd ${workspaceFolder} && PYTHONPROFILEIMPORTTIME=1 evennia reload 2> .vscode/importtime.log && python .vscode/importtime_summary.py .vscode/importtime.log | head -n 25"
+      ],
+      "options": { "cwd": "${workspaceFolder}" },
+      "presentation": { "reveal": "always", "panel": "shared", "showReuseMessage": false },
+      "problemMatcher": []
+    },
+    // <<< DEV: import-time profile (END)
+{
+  "label": "todo:review-ack",
+  "type": "shell",
+  "command": "bash",
+  "args": [
+    "-lc",
+    "tools/review-ack.sh \"${input:ackPattern}\" \"${input:ackBullets}\""
+  ],
+  "options": { "cwd": "${workspaceFolder}" },
+  "presentation": { "reveal": "always", "panel": "shared", "showReuseMessage": false },
+  "problemMatcher": []
+},
+
+    {
+      "label": "telemetry:install",
+      "type": "shell",
+      "command": "bash",
+      "args": ["-lc", "source .venv/bin/activate && pip install --upgrade 'fastapi>=0.110' 'uvicorn[standard]>=0.30'"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "presentation": { "reveal": "never", "panel": "shared", "showReuseMessage": false },
+      "problemMatcher": []
+    },
+    {
+  "label": "todo:review-ack:quick",
+  "type": "shell",
+  "command": "bash",
+  "args": [
+    "-lc",
+    "tools/review-ack.sh '(@rld|WEBSERVER_PORTS|CmdReloadCommands|ping|CmdPing)' 'Fixed WEBSERVER_PORTS tuple; Replaced default_cmdsets.py; Wired @rld; Review-ack script in place'"
+  ],
+  "options": { "cwd": "${workspaceFolder}" },
+  "presentation": { "reveal": "always", "panel": "shared", "showReuseMessage": false },
+  "problemMatcher": []
+    },
+    {
+      "label": "telemetry:start",
+      "type": "shell",
+      "command": "bash",
+      "args": ["-lc", "source .venv/bin/activate && uvicorn telemetry.server:app --host 127.0.0.1 --port 5055 --reload"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "isBackground": true,
+      "runOptions": { "runOn": "folderOpen" },
+      "presentation": { "reveal": "never", "panel": "shared", "showReuseMessage": false },
+      "problemMatcher": []
+    },
+    {
+      "label": "telemetry:open dashboard",
+      "type": "shell",
+      "command": "bash",
+      "args": ["-lc", "command -v wslview >/dev/null 2>&1 && wslview http://127.0.0.1:5055/dashboard || powershell.exe -NoProfile -Command start http://127.0.0.1:5055/dashboard"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "presentation": { "reveal": "silent", "panel": "shared", "showReuseMessage": false },
+      "problemMatcher": []
+    },
+
     {
       "label": "evennia:stop",
       "type": "shell",
       "command": "bash",
-      "args": ["-lc", "source .venv/bin/activate && evennia stop"],
+      "args": ["-lc", "tools/ev.sh stop"],
+      "presentation": { "panel": "shared", "reveal": "always", "showReuseMessage": false },
       "problemMatcher": []
     },
     {
       "label": "evennia:restart",
       "type": "shell",
       "command": "bash",
-      "args": ["-lc", "source .venv/bin/activate && evennia restart"],
+      "args": ["-lc", "tools/ev.sh restart"],
+      "presentation": { "panel": "shared", "reveal": "always", "clear": true, "showReuseMessage": false },
+      "problemMatcher": []
+    },
+    {
+      "label": "evennia:status",
+      "type": "shell",
+      "command": "bash",
+      "args": ["-lc", "tools/ev.sh status"],
+      "presentation": { "panel": "shared", "reveal": "always", "clear": true, "showReuseMessage": false },
+      "group": { "kind": "test", "isDefault": true },
       "problemMatcher": []
     },
     {
       "label": "evennia:tail logs",
       "type": "shell",
       "command": "bash",
-      "args": ["-lc", "tail -n 200 -F server/logs/server.log"],
-      "presentation": { "reveal": "always", "panel": "new" },
+      "args": ["-lc", "tools/ev.sh tail"],
+      "presentation": { "panel": "dedicated", "reveal": "always", "focus": true, "clear": true, "showReuseMessage": false },
+      "problemMatcher": []
+    },
+
+    {
+      "label": "ops:handover pack",
+      "type": "shell",
+      "command": "bash",
+      "args": ["-lc", "scripts/handover.sh"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "presentation": { "reveal": "silent", "panel": "shared", "showReuseMessage": false },
+      "problemMatcher": []
+    },
+
+    {
+      "label": "todo:ack",
+      "type": "shell",
+      "command": "bash",
+      "args": ["-lc", "tools/todo-ack.sh \"${input:ackPattern}\""],
+      "options": { "cwd": "${workspaceFolder}" },
+      "presentation": { "reveal": "always", "panel": "shared", "showReuseMessage": false },
+      "problemMatcher": []
+    },
+
+    {
+      "label": "evennia:stop logs tail",
+      "type": "shell",
+      "command": "bash",
+      "args": ["-lc", "tools/ev.sh tail-stop"],
+      "presentation": { "panel": "shared", "reveal": "never", "showReuseMessage": false },
+      "problemMatcher": []
+    },
+    {
+      "label": "evennia:force-stop",
+      "type": "shell",
+      "command": "bash",
+      "args": ["-lc", "tools/ev.sh force-stop"],
+      "presentation": { "panel": "shared", "reveal": "always", "showReuseMessage": false },
+      "problemMatcher": []
+    },
+    {
+      "label": "evennia:open web",
+      "type": "shell",
+      "command": "bash",
+      "args": ["-lc", "tools/ev.sh open-web"],
+      "presentation": { "panel": "shared", "reveal": "never", "showReuseMessage": false },
       "problemMatcher": []
     }
+  ],
+
+  "inputs": [
+    {
+      "id": "ackPattern",
+      "type": "promptString",
+      "description": "Regex to ACK from NOW → DONE",
+      "default": "ping|CmdPing|ports|WEBSERVER_PORTS|@rld"
+    },
+    {
+    "id": "ackBullets",
+    "type": "promptString",
+    "description": "Semicolon-separated accomplishments",
+    "default": "Fixed WEBSERVER_PORTS = [(4001, 4005)]; Wired @rld hot-reload; Added review-ack script & task"
+  }
   ]
 }
