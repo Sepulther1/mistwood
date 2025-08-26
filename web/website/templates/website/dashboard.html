@@ -1,0 +1,6 @@
+<!doctype html><html><body>
+  <h1>Dashboard</h1>
+  <p>Telnet: {{ telnet|default:"unknown" }}</p>
+  <p>Web: {{ web|default:"unknown" }}</p>
+  <pre>{{ telemetry|json_script:"telemetry" }}</pre>
+</body></html>

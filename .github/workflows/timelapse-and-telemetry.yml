@@ -1,0 +1,46 @@
+name: timelapse-and-telemetry
+on:
+  push:
+    branches: [ main, chore/**, feat/** ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: read
+  issues: read
+  pull-requests: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node (mermaid-cli)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm i -g @mermaid-js/mermaid-cli
+
+      - name: Build timelapse videos
+        run: |
+          bash tools/timelapse.sh
+          bash tools/publish_timelapse.sh
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Generate telemetry grade
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python tools/grove_sync.py
+
+      - name: Commit updated assets
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add web/static/timelapse/*.mp4 web/static/telemetry/grade.json || true
+          git diff --cached --quiet || git commit -m "ci: update timelapse & telemetry"
+          git push
