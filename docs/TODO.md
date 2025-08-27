@@ -39,3 +39,4 @@ None right now.
 - [ ] Public mirror (or confirm repo stays public) for AI audits.
 - [ ] Create GH labels (chore, infra, legal, docs) with gh CLI (needs repo scope).
 - [ ] Device matrix (telnet, webclient, websocket) and connection docs.
+- [ ] Convert deploy to local (done), remove SSH from workflow.
