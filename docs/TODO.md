@@ -40,3 +40,4 @@ None right now.
 - [ ] Create GH labels (chore, infra, legal, docs) with gh CLI (needs repo scope).
 - [ ] Device matrix (telnet, webclient, websocket) and connection docs.
 - [ ] Convert deploy to local (done), remove SSH from workflow.
+- [x] Helpers audit; fix site routes; switch workflow to local reload; add fingerprint input; Caddy fixed.
