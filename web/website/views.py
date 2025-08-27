@@ -12,6 +12,8 @@ def ai_onboarding(request):
 def dashboard(request):
     root = Path(getattr(settings, "GAME_DIR", Path(".")))
     telnet = web = None
+def how_we_license(request):
+    return render(request, "website/how_we_license.html")
 
     try:
         portal = root / "server" / "logs" / "portal.log"
