@@ -9,11 +9,12 @@ def timelapse(request):
 def ai_onboarding(request):
     return render(request, "website/ai_onboarding.html")
 
+def how_we_license(request):
+    return render(request, "website/how_we_license.html")
+
 def dashboard(request):
     root = Path(getattr(settings, "GAME_DIR", Path(".")))
     telnet = web = None
-def how_we_license(request):
-    return render(request, "website/how_we_license.html")
 
     try:
         portal = root / "server" / "logs" / "portal.log"
@@ -36,8 +37,5 @@ def how_we_license(request):
     except Exception:
         telemetry = {}
 
-    return render(
-        request,
-        "website/dashboard.html",
-        {"telnet": telnet, "web": web, "telemetry": telemetry},
-    )
+    return render(request, "website/dashboard.html",
+                  {"telnet": telnet, "web": web, "telemetry": telemetry})
