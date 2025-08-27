@@ -32,3 +32,10 @@ None right now.
 - [ ] Website pass: ensure /dashboard and pages show telemetry, grades, links, docs.
 - [ ] Legal: draft OSS/proprietary split, license files, attribution, and trademark plan; add “How we license” page.
 - [ ] Device matrix: test telnet, webclient, websocket; document ports and connection options.
+- [ ] Make deploy step local on self-hosted runner (no SSH).
+- [ ] Add real checks to grove_sync (GitHub checks, port probes, artifact freshness).
+- [ ] Blue/green prod vs dev; Caddy cut-overs.
+- [ ] “How we license Mistwood” page & docs attribution for Evennia.
+- [ ] Public mirror (or confirm repo stays public) for AI audits.
+- [ ] Create GH labels (chore, infra, legal, docs) with gh CLI (needs repo scope).
+- [ ] Device matrix (telnet, webclient, websocket) and connection docs.
