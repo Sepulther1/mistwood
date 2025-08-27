@@ -32,7 +32,7 @@ from evennia.settings_default import *
 ######################################################################
 
 # This is the name of your game. Make it catchy!
-SERVERNAME = "mistwood"
+SERVERNAME = "mistwood-dev"
 
 
 ######################################################################
@@ -42,3 +42,29 @@ try:
     from server.conf.secret_settings import *
 except ImportError:
     print("secret_settings.py file not found or failed to import.")
+
+
+
+
+# --- Mistwood (dev) ports ---
+TELNET_ENABLED = True
+TELNET_INTERFACES = ["0.0.0.0"]
+TELNET_PORTS = [4100]
+
+# Pairs: (proxy_port, server_port)
+WEBSERVER_PORTS = [(4105, 4101)]
+
+# Websocket client (list of ints)
+
+
+AMP_PORT = 4106
+# Dev override (final):
+
+# Final dev override
+WEBSOCKET_CLIENT_PORTS = [4102]
+
+try:
+    INSTALLED_APPS
+except NameError:
+    INSTALLED_APPS = []
+INSTALLED_APPS += ["web.website"]

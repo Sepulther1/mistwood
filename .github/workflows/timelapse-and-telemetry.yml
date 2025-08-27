@@ -1,4 +1,5 @@
 name: timelapse-and-telemetry
+
 on:
   push:
     branches: [ main, chore/**, feat/** ]
@@ -44,3 +45,20 @@ jobs:
           git add web/static/timelapse/*.mp4 web/static/telemetry/grade.json || true
           git diff --cached --quiet || git commit -m "ci: update timelapse & telemetry"
           git push
+
+      - name: Deploy & reload on server
+        env:
+          HOST:        ${{ vars.DEPLOY_HOST }}
+          USER:        ${{ vars.DEPLOY_USER }}
+          DIR:         ${{ vars.DEPLOY_DIR }}
+          BRANCH:      ${{ github.ref_name }}
+          DEPLOY_KEY:  ${{ secrets.DEPLOY_KEY }}
+        run: |
+          echo "$DEPLOY_KEY" > key && chmod 600 key
+          ssh -o StrictHostKeyChecking=no -i key "$USER@$HOST" \
+            "set -e; cd '$DIR'; \
+             git fetch origin $BRANCH; \
+             git checkout $BRANCH; \
+             git pull --ff-only origin $BRANCH; \
+             source .venv/bin/activate; \
+             python -m evennia -l reload"

@@ -1,0 +1,15 @@
+# / -> Evennia web (4105), /ws -> websocket (4102)
+admin off
+:8088
+
+handle_path /ws* {
+  reverse_proxy 127.0.0.1:4102 {
+    header_up Host {host}
+  }
+}
+
+handle {
+  reverse_proxy 127.0.0.1:4105
+}
+
+encode zstd gzip

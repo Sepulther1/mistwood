@@ -7,10 +7,11 @@ class CmdPing(Command):
     Usage:
       ping
 
-    Replies with a quick PONG so you can test hot-reload and clients.
+Replies with a simple message so you can verify that command wiring works.
     """
     key = "ping"
     locks = "cmd:all()"
+    help_category = "General"
 
     def func(self):
-        self.caller.msg("|gPONG from Evennia!|n")
+        self.caller.msg("PONG from Evennia!")
