@@ -2,24 +2,22 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "grove: sync grade",
-      "type": "shell",
-      "command": "bash",
-      "args": [
-        "-lc",
-        "cd /home/atlantis/dev/mistwood-dev && source .venv/bin/activate && python tools/grove_sync.py && python -m evennia -l reload"
-      ],
-      "problemMatcher": []
-    },
-    {
       "label": "canopy: refresh grade & timelapse",
       "type": "shell",
       "command": "bash",
       "args": [
         "-lc",
         "cd /home/atlantis/dev/mistwood-dev && source .venv/bin/activate && tools/timelapse.sh && tools/publish_timelapse.sh && python tools/grove_sync.py && python -m evennia -l reload"
-      ],
-      "problemMatcher": []
+      ]
+    },
+    {
+      "label": "grove: sync grade",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-lc",
+        "cd /home/atlantis/dev/mistwood-dev && source .venv/bin/activate && python tools/grove_sync.py && python -m evennia -l reload"
+      ]
     }
   ]
 }

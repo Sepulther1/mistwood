@@ -49,22 +49,29 @@ except ImportError:
 # --- Mistwood (dev) ports ---
 TELNET_ENABLED = True
 TELNET_INTERFACES = ["0.0.0.0"]
-TELNET_PORTS = [4100]
+TELNET_PORTS = [4110]
 
 # Pairs: (proxy_port, server_port)
-WEBSERVER_PORTS = [(4105, 4101)]
+WEBSERVER_PORTS = [(4115, 4111)]
 
 # Websocket client (list of ints)
 
 
-AMP_PORT = 4106
+AMP_PORT = 4116
 # Dev override (final):
 
 # Final dev override
-WEBSOCKET_CLIENT_PORTS = [4102]
+WEBSOCKET_CLIENT_PORTS = [4012]
 
 try:
     INSTALLED_APPS
 except NameError:
     INSTALLED_APPS = []
 INSTALLED_APPS += ["web.website"]
+
+mistwood.localhost {
+  reverse_proxy localhost:4105
+}
+dev.mistwood.localhost {
+  reverse_proxy localhost:4115
+}

@@ -9,10 +9,12 @@
     "timelapse_fresh": true,
     "open_bugs": 3
   },
-  "updated": "2025-08-26 19:15:30",
-  "block": 1,
+  "updated": "2025-08-26 21:11:22",
+  "block": 3,
   "history": [
+    85,
+    85,
     85
   ],
-  "trend_ewma": 85
+  "trend_ewma": 85.0
 }

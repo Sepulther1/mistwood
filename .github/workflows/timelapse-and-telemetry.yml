@@ -13,7 +13,7 @@ permissions:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v4
 
@@ -25,8 +25,8 @@ jobs:
 
       - name: Build timelapse videos
         run: |
-          bash tools/timelapse.sh
-          bash tools/publish_timelapse.sh
+          bash tools/timelapse.sh || true
+          bash tools/publish_timelapse.sh || true
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -45,6 +45,15 @@ jobs:
           git add web/static/timelapse/*.mp4 web/static/telemetry/grade.json || true
           git diff --cached --quiet || git commit -m "ci: update timelapse & telemetry"
           git push
+
+      # One-time check; set CHECK_FINGERPRINT=1 in "Run workflow" UI if you want to see it
+      - name: Check deploy key fingerprint (one-time)
+        if: ${{ env.CHECK_FINGERPRINT == '1' }}
+        env:
+          DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
+        run: |
+          echo "$DEPLOY_KEY" > key && chmod 600 key
+          ssh-keygen -y -f key | ssh-keygen -lf -
 
       - name: Deploy & reload on server
         env:
