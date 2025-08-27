@@ -1,13 +1,18 @@
 {
-  "grade": "B",
-  "score": 70,
+  "grade": "A",
+  "score": 85,
   "metrics": {
     "ci_pass": true,
     "lint_clean": true,
     "web_up": true,
     "telnet_up": true,
-    "timelapse_fresh": false,
+    "timelapse_fresh": true,
     "open_bugs": 3
   },
-  "updated": "Tue Aug 26 13:54:46 2025"
+  "updated": "2025-08-26 19:15:30",
+  "block": 1,
+  "history": [
+    85
+  ],
+  "trend_ewma": 85
 }
