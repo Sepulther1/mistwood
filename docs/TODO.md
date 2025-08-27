@@ -22,3 +22,4 @@ Webclient UX polish; add health pings & latency in dashboard.
 Blocked
 
 None right now.
+- [ ] Audit VS Code tasks/ev.sh to use mistwood-dev paths only (blocker for clean restarts)
