@@ -1,73 +1,17 @@
 name: timelapse-and-telemetry
-
 on:
-  push:
-    branches: [ main, chore/**, feat/** ]
   workflow_dispatch:
-
-permissions:
-  contents: write
-  actions: read
-  issues: read
-  pull-requests: read
-
+    inputs:
+      ref:
+        description: "Branch to run on"
+        required: true
+        default: "main"
+      CHECK_FINGERPRINT:
+        description: "Print deploy key fingerprint"
+        required: false
+        default: "0"
 jobs:
-  build:
-    runs-on: self-hosted
+  noop:
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Setup Node (mermaid-cli)
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-      - run: npm i -g @mermaid-js/mermaid-cli
-
-      - name: Build timelapse videos
-        run: |
-          bash tools/timelapse.sh || true
-          bash tools/publish_timelapse.sh || true
-
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-
-      - name: Generate telemetry grade
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python tools/grove_sync.py
-
-      - name: Commit updated assets
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add web/static/timelapse/*.mp4 web/static/telemetry/grade.json || true
-          git diff --cached --quiet || git commit -m "ci: update timelapse & telemetry"
-          git push
-
-      # One-time check; set CHECK_FINGERPRINT=1 in "Run workflow" UI if you want to see it
-      - name: Check deploy key fingerprint (one-time)
-        if: ${{ env.CHECK_FINGERPRINT == '1' }}
-        env:
-          DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
-        run: |
-          echo "$DEPLOY_KEY" > key && chmod 600 key
-          ssh-keygen -y -f key | ssh-keygen -lf -
-
-      - name: Deploy & reload on server
-        env:
-          HOST:        ${{ vars.DEPLOY_HOST }}
-          USER:        ${{ vars.DEPLOY_USER }}
-          DIR:         ${{ vars.DEPLOY_DIR }}
-          BRANCH:      ${{ github.ref_name }}
-          DEPLOY_KEY:  ${{ secrets.DEPLOY_KEY }}
-        run: |
-          echo "$DEPLOY_KEY" > key && chmod 600 key
-          ssh -o StrictHostKeyChecking=no -i key "$USER@$HOST" \
-            "set -e; cd '$DIR'; \
-             git fetch origin $BRANCH; \
-             git checkout $BRANCH; \
-             git pull --ff-only origin $BRANCH; \
-             source .venv/bin/activate; \
-             python -m evennia -l reload"
+      - run: echo "Dispatch enabled"
