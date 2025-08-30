@@ -8,11 +8,11 @@
 
 **Environment**
 - WSL: Ubuntu-24.04
-- Repo path: `/home/atlantis/dev/mistwood`
+- Repo path: `/home/atlantis/dev/mistwood-dev`
 - Python venv: `.venv` (auto-activate)
 
 **VS Code**
-- Tasks: Evennia start/stop/restart/status; tail logs.
+- Tasks: Mistwood start/stop/restart/status; tail logs.
 - Chords (Ctrl+Alt+…): E, X, R, T, L (tail), Q (stop tail), F (force stop), B (open web).
 - Terminals: one shared “Tasks” + one dedicated “Logs”.
 
@@ -25,11 +25,11 @@
 
 **Environment**
 - WSL: Ubuntu-24.04
-- Repo path: `/home/atlantis/dev/mistwood`
+- Repo path: `/home/atlantis/dev/mistwood-dev`
 - Python venv: `.venv` (auto-activate)
 
 **VS Code**
-- Tasks: Evennia start/stop/restart/status; tail logs.
+- Tasks: Mistwood start/stop/restart/status; tail logs.
 - Chords (Ctrl+Alt+…): E, X, R, T, L (tail), Q (stop tail), F (force stop), B (open web).
 - Terminals: one shared “Tasks” + one dedicated “Logs”.
 
@@ -56,8 +56,8 @@ Mistwood is our game-first sandbox where people learn, build, and have fun. It d
 
 ## Environment
 - **OS/Runtime:** WSL Ubuntu-24.04, Python 3.12, virtualenv `.venv` (auto-activated)
-- **Repo path (WSL):** `/home/atlantis/dev/mistwood`
-- **Core server:** Evennia 5.x
+- **Repo path (WSL):** `/home/atlantis/dev/mistwood-dev`
+- **Core server:** Mistwood 5.x
 
 ## Editor & Ops
 - **VS Code Tasks:** evennia start/stop/restart/status; tail logs; open web

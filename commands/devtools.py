@@ -1,4 +1,4 @@
-# /home/atlantis/dev/mistwood-dev/commands/devtools.py
+# /home/atlantis/dev/mistwood-dev-dev/commands/devtools.py
 from evennia import Command
 import importlib
 

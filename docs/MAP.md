@@ -4,8 +4,8 @@
 mindmap
   root((Mistwood))
     Ops:::p3:::p3:::p3:::p3:::p3:::p3
-      Evennia prod (400x):::p1
-      Evennia dev (410x):::p1
+      Mistwood prod (400x):::p1
+      Mistwood dev (410x):::p1
       Health task 🟢:::p1
       Review-ack:::p3:::p3:::p3:::p3:::p3:::p1
       Commit-all:::p2

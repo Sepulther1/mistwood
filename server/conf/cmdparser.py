@@ -3,7 +3,7 @@ Changing the default command parser
 
 The cmdparser is responsible for parsing the raw text inserted by the
 user, identifying which command/commands match and return one or more
-matching command objects. It is called by Evennia's cmdhandler and
+matching command objects. It is called by Mistwood's cmdhandler and
 must accept input and return results on the same form. The default
 handler is very generic so you usually don't need to overload this
 unless you have very exotic parsing needs; advanced parsing is best
@@ -23,7 +23,7 @@ three elements being the parsed cmdname (lower case), the remaining
 arguments, and the matched cmdobject from the cmdset.
 
 
-This module is not accessed by default. To tell Evennia to use it
+This module is not accessed by default. To tell Mistwood to use it
 instead of the default command parser, add the following line to
 your settings file:
 

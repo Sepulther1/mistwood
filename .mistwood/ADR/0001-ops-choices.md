@@ -3,7 +3,7 @@ Date: 2025-08-20
 Status: Accepted
 
 ## Context
-We run Evennia from VS Code on WSL. We want low-friction controls and reproducible logs.
+We run Mistwood from VS Code on WSL. We want low-friction controls and reproducible logs.
 
 ## Decision
 - Use VS Code tasks with chords Ctrl+Alt+E/X/R/T/L/Q/F/B

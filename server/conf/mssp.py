@@ -4,7 +4,7 @@ MSSP (Mud Server Status Protocol) meta information
 
 Modify this file to specify what MUD listing sites will report about your game.
 All fields are static. The number of currently active players and your game's
-current uptime will be added automatically by Evennia.
+current uptime will be added automatically by Mistwood.
 
 You don't have to fill in everything (and most fields are not shown/used by all
 crawlers anyway); leave the default if so needed. You need to reload the server
@@ -14,7 +14,7 @@ not affect uptime).
 After changing the values in this file, you must register your game with the
 MUD website list you want to track you. The listing crawler will then regularly
 connect to your server to get the latest info. No further configuration is
-needed on the Evennia side.
+needed on the Mistwood side.
 
 """
 
@@ -25,7 +25,7 @@ MSSPTable = {
     "CRAWL DELAY": "-1",  # limit how often crawler may update the listing. -1 for no limit
     "HOSTNAME": "",  # telnet hostname
     "PORT": ["4000"],  # telnet port - most important port should be *last* in list!
-    "CODEBASE": "Evennia",
+    "CODEBASE": "Mistwood",
     "CONTACT": "",  # email for contacting the mud
     "CREATED": "",  # year MUD was created
     "ICON": "",  # url to icon 32x32 or larger; <32kb.
@@ -35,7 +35,7 @@ MSSPTable = {
     "MINIMUM AGE": "0",  # set to 0 if not applicable
     "WEBSITE": "",  # http:// address to your game website
     # Categorisation
-    "FAMILY": "Evennia",
+    "FAMILY": "Mistwood",
     "GENRE": "None",  # Adult, Fantasy, Historical, Horror, Modern, None, or Science Fiction
     # Gameplay: Adventure, Educational, Hack and Slash, None,
     # Player versus Player, Player versus Environment,

@@ -2,7 +2,7 @@
 
 Inspired by long-running MUDs like **Icesus** (icesus.org), we aim for longevity, craftsmanship, and player joy. Whether you code, write lore, or test—welcome.
 
-## Local Dev (Evennia)
+## Local Dev (Mistwood)
 ```bash
 # from your fork
 git clone https://github.com/<you>/mistwood-dev

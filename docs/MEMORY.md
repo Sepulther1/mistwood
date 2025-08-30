@@ -9,7 +9,7 @@
 
 ## Categories
 - Visual (UI/UX, dashboards, maps)
-- Technical (Evennia, commands, ports, profiling)
+- Technical (Mistwood, commands, ports, profiling)
 - Ops (tasks.json, hotkeys, scripts)
 - Telemetry (metrics, dashboards, alerts)
 - Product (scope, loops, monetization)

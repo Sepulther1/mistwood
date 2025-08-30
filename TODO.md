@@ -20,7 +20,7 @@ Add telemetry/server.py, then run telemetry:install → telemetry:start → tele
 
 ## DONE (recent)
 ### Session accomplishments — 2025-08-22 13:01 PDT
-- [x] Fixed Evennia ports: WEBSERVER_PORTS = [(4001, 4005)] → Server RUNNING; wired @rld hot-reload; added GitHub task template; ack hotkey set.
+- [x] Fixed Mistwood ports: WEBSERVER_PORTS = [(4001, 4005)] → Server RUNNING; wired @rld hot-reload; added GitHub task template; ack hotkey set.
 ### Session accomplishments — 2025-08-22 12:04 PDT
 - [x] `tools/ev.sh` created + `chmod +x`; start/stop/restart/status/tail/force-stop/open-web wired.
 - [x] `commands/ping.py` implemented; `CmdPing` registered once per cmdset; verified `ping → PONG` in MushClient/webclient.
@@ -31,11 +31,11 @@ Add telemetry/server.py, then run telemetry:install → telemetry:start → tele
 - [x] `TODO.md` hygiene: ACKed ping items into **DONE**; removed from **NOW**.
 - [x] `tools/todo-ack.sh` added (+ task `todo:ack`); `tasks.json` validated.
 - [x] Register `CmdPing` once per cmdset (Character, Account, Unloggedin).
-- [x] Evennia portal/server running clean after reload (no import errors).
-- [x] Verified `ping` → `PONG from Evennia!` in MushClient (localhost:4000) and webclient (http://localhost:4001).
+- [x] Mistwood portal/server running clean after reload (no import errors).
+- [x] Verified `ping` → `PONG from Mistwood!` in MushClient (localhost:4000) and webclient (http://localhost:4001).
 - [x] …
 3× self.add(CmdPing()) (one per cmdset) ✅
 
-Evennia up, portal/server healthy ✅
+Mistwood up, portal/server healthy ✅
 
-ping → PONG from Evennia! ✅
+ping → PONG from Mistwood! ✅

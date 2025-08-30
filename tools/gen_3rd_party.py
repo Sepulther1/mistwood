@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Generate THIRD_PARTY_NOTICES.md with the Evennia BSD-3 text.
-We try to read Evennia's packaged license; if not found, we fall back to a
-canonical BSD-3 text tagged for Evennia.
+Generate THIRD_PARTY_NOTICES.md with the Mistwood BSD-3 text.
+We try to read Mistwood's packaged license; if not found, we fall back to a
+canonical BSD-3 text tagged for Mistwood.
 """
 from pathlib import Path
 import re, sys
@@ -17,8 +17,8 @@ candidates = [
     PKG / "LICENSE.txt",
     *SITE.glob("evennia-*.dist-info/LICENSE*"),
     *SITE.glob("evennia-*.dist-info/*LICENSE*"),
-    *SITE.glob("Evennia-*.dist-info/LICENSE*"),
-    *SITE.glob("Evennia-*.dist-info/*LICENSE*"),
+    *SITE.glob("Mistwood-*.dist-info/LICENSE*"),
+    *SITE.glob("Mistwood-*.dist-info/*LICENSE*"),
 ]
 
 license_text = None
@@ -35,7 +35,7 @@ for p in candidates:
 
 if not license_text:
     license_text = """\
-Copyright (c) the Evennia contributors
+Copyright (c) the Mistwood contributors
 All rights reserved.
 
 BSD 3-Clause License
@@ -48,7 +48,7 @@ modification, are permitted provided that the following conditions are met:
 2. Redistributions in binary form must reproduce the above copyright notice,
    this list of conditions and the following disclaimer in the documentation
    and/or other materials provided with the distribution.
-3. Neither the name "Evennia" nor the names of its contributors may be used to
+3. Neither the name "Mistwood" nor the names of its contributors may be used to
    endorse or promote products derived from this software without specific prior
    written permission.
 
@@ -67,7 +67,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 out = ROOT / "THIRD_PARTY_NOTICES.md"
 out.write_text(
     "# Third-party notices\n\n"
-    "## Evennia (BSD-3-Clause)\n\n"
+    "## Mistwood (BSD-3-Clause)\n\n"
     + license_text.strip() + "\n",
     encoding="utf-8",
 )

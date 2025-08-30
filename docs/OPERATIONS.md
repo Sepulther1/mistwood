@@ -9,7 +9,7 @@
 
 ## Start / Stop / Reload
 ```bash
-cd /home/atlantis/dev/mistwood-dev && source .venv/bin/activate
+cd /home/atlantis/dev/mistwood-dev-dev && source .venv/bin/activate
 python -m evennia -l start      # start & tail logs
 python -m evennia -l reload     # hot reload
 pkill -f twistd || true         # hard stop

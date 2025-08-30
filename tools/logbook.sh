@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
-FILE="/home/atlantis/dev/mistwood-dev/docs/LOGBOOK.md"
+FILE="/home/atlantis/dev/mistwood-dev-dev/docs/LOGBOOK.md"
 TODAY="$(date +%F)"
 LINE="- $*"
 touch "$FILE"

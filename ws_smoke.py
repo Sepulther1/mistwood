@@ -1,4 +1,4 @@
-# /home/atlantis/dev/mistwood-dev/ws_smoke.py
+# /home/atlantis/dev/mistwood-dev-dev/ws_smoke.py
 import websocket
 
 URL = "ws://localhost:4102"

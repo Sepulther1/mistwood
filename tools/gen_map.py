@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# /home/atlantis/dev/mistwood-dev/tools/gen_map.py
+# /home/atlantis/dev/mistwood-dev-dev/tools/gen_map.py
 import json, re, subprocess
 from pathlib import Path
 from urllib.parse import quote

@@ -1,23 +1,37 @@
 {
   "version": "2.0.0",
   "tasks": [
-    {
-      "label": "canopy: refresh grade & timelapse",
-      "type": "shell",
-      "command": "bash",
-      "args": [
-        "-lc",
-        "cd /home/atlantis/dev/mistwood-dev && source .venv/bin/activate && tools/timelapse.sh && tools/publish_timelapse.sh && python tools/grove_sync.py && python -m evennia -l reload"
-      ]
-    },
-    {
-      "label": "grove: sync grade",
-      "type": "shell",
-      "command": "bash",
-      "args": [
-        "-lc",
-        "cd /home/atlantis/dev/mistwood-dev && source .venv/bin/activate && python tools/grove_sync.py && python -m evennia -l reload"
-      ]
-    }
+    { "label": "evennia:start",   "type": "shell", "command": "bash -lc '/home/atlantis/dev/mistwood-dev/tools/ev.sh start'" },
+    { "label": "evennia:stop",    "type": "shell", "command": "bash -lc '/home/atlantis/dev/mistwood-dev/tools/ev.sh stop'" },
+    { "label": "evennia:restart", "type": "shell", "command": "bash -lc '/home/atlantis/dev/mistwood-dev/tools/ev.sh restart'" },
+    { "label": "evennia:status",  "type": "shell", "command": "bash -lc '/home/atlantis/dev/mistwood-dev/tools/ev.sh status'" },
+    { "label": "evennia:tail logs", "type": "shell", "command": "bash -lc '/home/atlantis/dev/mistwood-dev/tools/ev.sh logs'" },
+    { "label": "evennia:stop logs tail", "type": "shell", "command": "bash -lc '/home/atlantis/dev/mistwood-dev/tools/ev.sh flog'" },
+    { "label": "evennia:force-stop", "type": "shell", "command": "bash -lc '/home/atlantis/dev/mistwood-dev/tools/ev.sh force-stop'" },
+    { "label": "evennia:open web", "type": "shell", "command": "bash -lc '/home/atlantis/dev/mistwood-dev/tools/ev.sh open-web'" },
+
+    { "label": "dev: reload (Mistwood)", "type": "shell",
+      "command": "bash -lc 'cd /home/atlantis/dev/mistwood-dev && source .venv/bin/activate && python -m evennia -l reload'" },
+
+    { "label": "dev: sync+reload", "type": "shell",
+      "command": "bash -lc 'cd /home/atlantis/dev/mistwood-dev && source .venv/bin/activate && python tools/grove_sync.py && python -m evennia -l reload'" },
+
+    { "label": "grove: sync grade", "type": "shell",
+      "command": "bash -lc 'cd /home/atlantis/dev/mistwood-dev && source .venv/bin/activate && python tools/grove_sync.py'" },
+
+    { "label": "telemetry: timelapse", "type": "shell",
+      "command": "bash -lc 'cd /home/atlantis/dev/mistwood-dev && source .venv/bin/activate && tools/timelapse.sh && tools/publish_timelapse.sh'" },
+
+    { "label": "deploy: run workflow (self-hosted)", "type": "shell",
+      "command": "bash -lc 'gh workflow run \"timelapse-and-telemetry\" --ref ${input:branch} -f ref=${input:branch} -f CHECK_FINGERPRINT=${input:fingerprint}'" },
+
+    { "label": "caddy: validate+reload", "type": "shell",
+      "command": "bash -lc 'sudo caddy validate --config /etc/caddy/Caddyfile && sudo systemctl reload caddy'" }
+  ],
+  "inputs": [
+    { "id": "branch", "type": "pickString", "options": ["main","chore/try-ci"], "default": "chore/try-ci",
+      "description": "Branch to deploy" },
+    { "id": "fingerprint", "type": "pickString", "options": ["0","1"], "default": "0",
+      "description": "Print deploy key fingerprint?" }
   ]
 }

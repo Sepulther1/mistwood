@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
-ROOT="/home/atlantis/dev/mistwood-dev"
+ROOT="/home/atlantis/dev/mistwood-dev-dev"
 DOCS="$ROOT/docs"
 OUT="$DOCS"
 TMP="$DOCS/.timelapse-tmp"

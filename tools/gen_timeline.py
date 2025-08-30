@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# /home/atlantis/dev/mistwood-dev/tools/gen_timeline.py
+# /home/atlantis/dev/mistwood-dev-dev/tools/gen_timeline.py
 from pathlib import Path
 import argparse, re
 

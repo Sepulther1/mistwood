@@ -9,7 +9,7 @@ Trailguide is your step-by-step path to get Mistwood running and to learn the lo
 - `git clone https://github.com/Sepulther1/mistwood.git && cd mistwood`
 - `python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt`
 
-## 2) Start Evennia locally
+## 2) Start Mistwood locally
 - `pip install evennia
 - `evennia --init
 - `evennia start` (first run)
@@ -33,7 +33,7 @@ Trailguide is your step-by-step path to get Mistwood running and to learn the lo
 ## 6) CI optional: push & deploy
 - Push to `main`, `chore/**`, or `feat/**` to run **timelapse-and-telemetry**.
 - Add secrets/variables for deploy (see README notes) to ship MP4s to the server
-  and auto-reload Evennia.
+  and auto-reload Mistwood.
 
 ## 7) Where to look next
 - `web/website/views.py` and templates under `web/website/templates/website/`

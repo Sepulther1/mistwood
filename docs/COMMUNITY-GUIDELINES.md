@@ -46,7 +46,7 @@ Add a footer: AI-assist: yes and list tools used.
 
 Preview Environments (per-contributor server)
 
-We plan to run a GitHub Actions job that boots a temporary Evennia instance for your PR and posts its URL in the PR (ephemeral, auto-teardown).
+We plan to run a GitHub Actions job that boots a temporary Mistwood instance for your PR and posts its URL in the PR (ephemeral, auto-teardown).
 
 Until that lands, run locally and attach logs/screenshots; we’ll replicate if needed.
 

@@ -1,7 +1,7 @@
 # Mistwood – Productization Backlog
 
 ## Candidates
-- VS Code Evennia tasks + keybindings (starter kit)
+- VS Code Mistwood tasks + keybindings (starter kit)
 - LagBar userscript (scroll lock + bottom bar metrics)
 - LagLab Passive (local metrics + dashboard)
 - “Ops log” pattern for small game servers

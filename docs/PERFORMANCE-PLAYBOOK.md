@@ -28,7 +28,7 @@
 - Prefer `bash -lc 'source .venv/bin/activate && …'`.
 
 ### Backend / Server
-- Keep Evennia + Twisted updated (security fixes).
+- Keep Mistwood + Twisted updated (security fixes).
 - Log actionable errors; avoid noisy stacktraces.
 
 ### Data & Caching

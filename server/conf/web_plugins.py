@@ -32,7 +32,7 @@ def at_webproxy_root_creation(web_root):
     """
     This function can modify the portal proxy service.
     Args:
-        web_root (evennia.server.webserver.Website): The Evennia
+        web_root (evennia.server.webserver.Website): The Mistwood
             Website application. Use .putChild() to add new
             subdomains that are Portal-accessible over TCP;
             primarily for new protocol development, but suitable

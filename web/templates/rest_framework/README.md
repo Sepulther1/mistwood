@@ -1,3 +1,3 @@
-# Templates for the Evennia API
+# Templates for the Mistwood API
 
 Override templates here.

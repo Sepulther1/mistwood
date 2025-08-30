@@ -4,7 +4,7 @@
 Path: Repo → Settings → Secrets and variables → Actions → Variables tab
 - Name: DEPLOY_HOST → Value: 127.0.0.1
 - Name: DEPLOY_USER → Value: atlantis
-- Name: DEPLOY_DIR  → Value: /home/atlantis/dev/mistwood-dev
+- Name: DEPLOY_DIR  → Value: /home/atlantis/dev/mistwood-dev-dev
 
 ## Repository secrets
 Path: Repo → Settings → Secrets and variables → Actions → Secrets tab
