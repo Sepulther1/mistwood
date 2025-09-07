@@ -70,3 +70,7 @@ dist/
 server/logs/
 mistwood.code-workspace
 mistwood/
+/docs/wfb/*.md
+/docs/wfb/*.md
+**/*.age
+docs/status/*.json
