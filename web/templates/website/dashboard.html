@@ -1,0 +1,17 @@
+<!doctype html><meta charset="utf-8">
+<title>dashboard</title>
+<h1>dashboard</h1>
+<p>Stub page. Replace me with real content.</p>
+
+<h1>Mistwood Status</h1>
+<p>DEV:
+  <strong style="color:{{ 'green' if dev_ok else 'red' }}">{{ 'UP' if dev_ok else 'DOWN' }}</strong>
+  — telnet 4110, web 4115→4111, ws 4002
+  — <a href="http://dev.mistwood.localhost/timelapse/">open</a>
+</p>
+<p>PROD:
+  <strong style="color:{{ 'green' if prod_ok else 'red' }}">{{ 'UP' if prod_ok else 'DOWN' }}</strong>
+  — telnet 4100, web 4105→4101, ws disabled
+  — <a href="http://mistwood.localhost/">open</a>
+</p>
+<p><a href="/website/hotkeys/">Hotkeys</a> | <a href="/static/docs/hotkeys.md">Hotkeys (md)</a></p>

@@ -7,7 +7,7 @@ which in turn limits access to various game systems.
 
 All functions defined globally in this module are assumed to be
 available for use in lockstrings to determine access. See the
-Evennia documentation for more info on locks.
+Mistwood documentation for more info on locks.
 
 A lock function is always called with two arguments, accessing_obj and
 accessed_obj, followed by any number of arguments. All possible

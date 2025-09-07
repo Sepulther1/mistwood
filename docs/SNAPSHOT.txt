@@ -1,0 +1,1 @@
+bash: /home/atlantis/dev/mistwood-dev/tools/snapshot.sh: Permission denied

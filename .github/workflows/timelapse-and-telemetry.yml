@@ -1,0 +1,17 @@
+name: timelapse-and-telemetry
+on:
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: "Branch to run on"
+        required: true
+        default: "main"
+      CHECK_FINGERPRINT:
+        description: "Print deploy key fingerprint"
+        required: false
+        default: "0"
+jobs:
+  noop:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Dispatch enabled"

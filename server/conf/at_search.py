@@ -1,7 +1,7 @@
 """
 Search and multimatch handling
 
-This module allows for overloading two functions used by Evennia's
+This module allows for overloading two functions used by Mistwood's
 search functionality:
 
     at_search_result:

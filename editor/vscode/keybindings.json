@@ -1,0 +1,20 @@
+[
+  { "key": "ctrl+alt+e", "command": "workbench.action.tasks.runTask", "args": "evennia:start" },
+  { "key": "ctrl+alt+x", "command": "workbench.action.tasks.runTask", "args": "evennia:stop" },
+  { "key": "ctrl+alt+r", "command": "workbench.action.tasks.runTask", "args": "evennia:restart" },
+  { "key": "ctrl+alt+t", "command": "workbench.action.tasks.runTask", "args": "evennia:status" },
+  { "key": "ctrl+alt+l", "command": "workbench.action.tasks.runTask", "args": "evennia:tail logs" },
+  { "key": "ctrl+alt+q", "command": "workbench.action.tasks.runTask", "args": "evennia:stop logs tail" },
+  { "key": "ctrl+alt+f", "command": "workbench.action.tasks.runTask", "args": "evennia:force-stop" },
+  { "key": "ctrl+alt+b", "command": "workbench.action.tasks.runTask", "args": "evennia:open web" },
+
+  { "key": "ctrl+shift+r", "command": "-workbench.action.debug.restart" },
+  { "key": "ctrl+shift+d", "command": "-workbench.view.debug" },
+
+  { "key": "ctrl+shift+r", "command": "workbench.action.tasks.runTask", "args": "dev: reload (Mistwood)" },
+  { "key": "ctrl+shift+s", "command": "workbench.action.tasks.runTask", "args": "dev: sync+reload" },
+  { "key": "ctrl+shift+g", "command": "workbench.action.tasks.runTask", "args": "grove: sync grade" },
+  { "key": "ctrl+shift+t", "command": "workbench.action.tasks.runTask", "args": "telemetry: timelapse" },
+  { "key": "ctrl+shift+d", "command": "workbench.action.tasks.runTask", "args": "deploy: run workflow (self-hosted)" },
+  { "key": "ctrl+shift+c", "command": "workbench.action.tasks.runTask", "args": "caddy: validate+reload" }
+]

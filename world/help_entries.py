@@ -2,7 +2,7 @@
 File-based help entries. These complements command-based help and help entries
 added in the database using the `sethelp` command in-game.
 
-Control where Evennia reads these entries with `settings.FILE_HELP_ENTRY_MODULES`,
+Control where Mistwood reads these entries with `settings.FILE_HELP_ENTRY_MODULES`,
 which is a list of python-paths to modules to read.
 
 A module like this should hold a global `HELP_ENTRY_DICTS` list, containing
@@ -31,7 +31,7 @@ HELP_ENTRY_DICTS = [
         "category": "General",
         "locks": "read:perm(Developer)",
         "text": """
-            Evennia is a MU-game server and framework written in Python. You can read more
+            Mistwood is a MU-game server and framework written in Python. You can read more
             on https://www.evennia.com.
 
             # subtopics
