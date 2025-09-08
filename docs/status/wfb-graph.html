@@ -1,0 +1,62 @@
+<!doctype html>
+<meta charset="utf-8"/>
+<title>WFB Graph</title>
+<style>
+  body{font:14px ui-sans-serif,system-ui;margin:24px;background:#f7f9fc;color:#0b1020}
+  h1{margin:0 0 8px} .muted{color:#667}
+  a{color:#1149c9;text-decoration:none} a:hover{text-decoration:underline}
+  .card{background:#fff;border-radius:14px;padding:16px;margin:12px 0;box-shadow:0 2px 10px rgba(0,0,0,.05)}
+  table{border-collapse:collapse;width:100%} th,td{border-bottom:1px solid #eee;padding:8px;text-align:left}
+  code{font:12px ui-monospace,monospace}
+  .pill{display:inline-block;padding:2px 6px;border-radius:999px;background:#eef;margin-right:4px}
+</style>
+<h1>WFB Graph</h1>
+<div class="muted">Reads <code>docs/wfb/wfb.graph.json</code></div>
+
+<div id="summary" class="card">Loading…</div>
+<div id="list" class="card"></div>
+
+<script>
+(async function(){
+  const base = location.pathname.replace(/\/status\/[^/]*$/, '/'); // docs/
+  const url = base + 'wfb/wfb.graph.json';
+  let data;
+  try {
+    const r = await fetch(url, {cache:'no-store'});
+    if (!r.ok) throw new Error(r.status + ' ' + r.statusText);
+    data = await r.json();
+  } catch (e) {
+    document.getElementById('summary').innerHTML =
+      '<b>Error:</b> cannot load <code>wfb.graph.json</code> ('+e.message+').';
+    return;
+  }
+
+  const nodes = data.nodes || data.WFBs || []; // be tolerant
+  const edges = data.edges || data.links || [];
+
+  // Summary
+  document.getElementById('summary').innerHTML =
+    '<b>'+nodes.length+'</b> WFBs · <b>'+edges.length+'</b> links';
+
+  // Table
+  const tbody = [];
+  nodes.forEach(n => {
+    const file = n.file || n.path || n.id || '';
+    const ts = (n.ts || '').replace('T',' ').replace('Z','');
+    const areas = (n.areas || n.tags || []).join(', ');
+    const rel = '../' + file; // from docs/status to docs/wfb/...
+    tbody.push(
+      '<tr>' +
+      '<td><a href="'+rel+'"><code>'+file.split('/').pop()+'</code></a></td>' +
+      '<td>'+ (n.title || '') +'</td>' +
+      '<td>'+ (areas || '') +'</td>' +
+      '<td>'+ (ts || '') +'</td>' +
+      '</tr>'
+    );
+  });
+
+  document.getElementById('list').innerHTML =
+    '<table><thead><tr><th>File</th><th>Title</th><th>Areas</th><th>Timestamp</th></tr></thead>' +
+    '<tbody>'+tbody.join('')+'</tbody></table>';
+})();
+</script>
