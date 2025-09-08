@@ -172,7 +172,7 @@ a{color:#1149c9;text-decoration:none} a:hover{text-decoration:underline}
       <div class="row"><span class="label">Indexes & views</span>
         <span>
           <a href="../wfb/wfb.graph.json">raw graph</a> ·
-          <a href="wfb-index.html">WFB index</a>
+          <a href="wfb-index.html">WFB index</a> · <a href="wfb-graph.html">WFB graph</a>
         </span><span></span>
       </div>
       <div class="row small"><span class="label">Legend</span>

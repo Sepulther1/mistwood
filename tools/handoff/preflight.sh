@@ -8,7 +8,6 @@ trap 'code=$?; echo "red: preflight crashed (exit $code)"; exit $code' ERR
 
 pass=1
 msgs=()
-
 say() { msgs+=("$1"); }
 
 # A) Dashboard builds
@@ -44,13 +43,15 @@ fi
 
 # D) Active WFB header + TODOs
 latest="$(ls -1t docs/wfb/WFB-*.md 2>/dev/null | head -n1 || true)"
-if [ -n "$latest" ] && [ -f "$latest" ]; then
-  if head -n1 "$latest" | grep -q '^---'; then
+if [ -n "${latest:-}" ] && [ -f "$latest" ]; then
+  # header check (no pipe → immune to pipefail)
+  if [ "$(head -n1 "$latest")" = '---' ]; then
     say "green: WFB header present ($(basename "$latest"))"
   else
     say "red: WFB header missing in $(basename "$latest")"; pass=0
   fi
-  todo_count=$(grep -E '(^|[[:space:]])(TODO:|TODO\b|^- \[ \])' "$latest" | wc -l | tr -d ' ')
+  # count TODOs safely under pipefail
+  todo_count="$(( ( (grep -E '(^|[[:space:]])(TODO:|TODO\b|^- \[ \])' "$latest" || true) | wc -l ) 2>/dev/null ))"
   if [ "${todo_count:-0}" -ge 5 ]; then
     say "green: TODOs present ($todo_count)"
   else
@@ -69,10 +70,10 @@ fi
 
 status=$([ "$pass" -eq 1 ] && echo "green" || echo "yellow")
 
-# Write JSON with Python (robust)
+# Write JSON (robust)
 PY_STATUS="$status" PY_LINES="$(printf '%s\n' "${msgs[@]}")" \
 python3 - <<'PY'
-import json, os, pathlib, sys
+import json, os, pathlib
 out = pathlib.Path("docs/status/preflight.json")
 lines = [l for l in os.environ.get("PY_LINES","").splitlines() if l.strip()]
 data = {"status": os.environ.get("PY_STATUS","yellow"), "notes": lines}
