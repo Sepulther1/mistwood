@@ -74,3 +74,5 @@ mistwood/
 /docs/wfb/*.md
 **/*.age
 docs/status/*.json
+**/*.age
+docs/status/*.json
