@@ -12,7 +12,7 @@ To change the login screen in this module, do one of the following:
   This can be used to produce more dynamic screens.
 - Alternatively, define a string variable in the outermost scope of this module
   with the connection string that should be displayed. If more than one such
-  variable is given, Evennia will pick one of them at random.
+  variable is given, Mistwood will pick one of them at random.
 
 The commands available to the user when the connection screen is shown
 are defined in evennia.default_cmds.UnloggedinCmdSet. The parsing and display

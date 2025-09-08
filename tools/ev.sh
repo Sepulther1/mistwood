@@ -1,5 +1,23 @@
 #!/usr/bin/env bash
 set -euo pipefail
+<<<<<<< HEAD
+GAME="/home/atlantis/dev/mistwood-dev"
+VENV="$GAME/.venv/bin/activate"
+
+case "${1:-}" in
+  start)    cd "$GAME" && source "$VENV" && evennia start ;;
+  stop)     cd "$GAME" && source "$VENV" && evennia stop  ;;
+  restart)  cd "$GAME" && source "$VENV" && evennia restart ;;
+  status)   ss -ltnp | egrep ':(4012|4115|4110)' || true ;;
+  logs)     tail -f "$GAME/server/logs/server.log" "$GAME/server/logs/portal.log" ;;
+  flog)     pkill -f "tail -f .*server.log" || true ;;
+  force-stop) pkill -f 'twistd.*mistwood' || true ;;
+  open-web) xdg-open "http://dev.mistwood.localhost" >/dev/null 2>&1 || true ;;
+  *)
+    echo "Usage: $0 {start|stop|restart|status|logs|flog|force-stop|open-web}"
+    exit 1
+    ;;
+=======
 cd "$(dirname "$0")/.."
 
 LOG=".vscode/ops.log"
@@ -21,4 +39,5 @@ case "${1:-}" in
   open-web)    if command -v wslview >/dev/null 2>&1; then wslview http://127.0.0.1:4001
                else powershell.exe -NoProfile -Command start http://127.0.0.1:4001; fi ;;
   *) echo "Usage: tools/ev.sh {start|stop|restart|status|tail|tail-stop|force-stop|open-web}" >&2; exit 2 ;;
+>>>>>>> origin/main
 esac

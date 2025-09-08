@@ -16,7 +16,7 @@ typeclasses instead.
 A prototype can either be a dictionary placed into a global variable in a
 python module (a 'module-prototype') or stored in the database as a dict on a
 special Script (a db-prototype). The former can be created just by adding dicts
-to modules Evennia looks at for prototypes, the latter is easiest created
+to modules Mistwood looks at for prototypes, the latter is easiest created
 in-game via the `olc` command/menu.
 
 Prototypes are read and used to create new objects with the `spawn` command

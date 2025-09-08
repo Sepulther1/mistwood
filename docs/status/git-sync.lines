@@ -1,0 +1,7 @@
+[sync] wrote docs/status/git-sync.json
+green: github-connect basics ok
+green: remote reachable
+green: sync coverage 94% (tracked=177, modified=9)
+yellow: untracked local files (add → GH): 1225
+yellow: remote-only files (pull/archive): 0
+green: ahead=1 behind=0

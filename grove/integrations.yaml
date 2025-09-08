@@ -1,0 +1,35 @@
+connectors:
+github:
+enabled: true
+repos:
+- mistwood-dev
+sync:
+issues: true
+prs: true
+labels_back: true
+notion: { enabled: true }
+linear: { enabled: true }
+hubspot: { enabled: false }
+gmail: { enabled: false }
+gcal: { enabled: false }
+planned:
+
+"Box"
+
+"Google Drive"
+
+"Caddy/Logs → Grove"
+value_add:
+github:
+
+"Group issues into 'workflow blocks'"
+
+"Auto-label priority & risk"
+
+"Emit checklists/commit-message stubs"
+notion:
+
+"Publish STATUS.md snapshots"
+linear:
+
+"Mirror critical bugs → sprint"

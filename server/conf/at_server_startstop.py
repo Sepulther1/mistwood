@@ -1,7 +1,7 @@
 """
 Server startstop hooks
 
-This module contains functions called by Evennia at various
+This module contains functions called by Mistwood at various
 points during its startup, reload and shutdown sequence. It
 allows for customizing the server operation as desired.
 

@@ -1,0 +1,58 @@
+<!doctype html><html><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Grove: Total System Performance</title>
+<style>
+:root { --fg:#0b1020; --bg:#f7f9fc; --card:#fff; --muted:#667; }
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.5 ui-sans-serif,system-ui,Segoe UI,Roboto,Ubuntu}
+.wrap{max-width:920px;margin:24px auto;padding:0 16px}
+h1{margin:16px 0 8px} .muted{color:var(--muted)}
+.card{background:var(--card);border-radius:14px;padding:16px 16px 8px;margin:12px 0;box-shadow:0 2px 10px rgba(0,0,0,.05)}
+.grid{display:grid;grid-template-columns:1fr;gap:8px}
+.badge{padding:2px 8px;border-radius:999px;font:12px ui-monospace,monospace;white-space:nowrap}
+.green{background:#b2f5b2;color:#064}
+.yellow{background:#ffe9a6;color:#7a5300}
+.red{background:#ffc0c0;color:#600}
+.blue{background:#cfe8ff;color:#063}
+.row{display:grid;grid-template-columns: 280px 1fr 80px;gap:8px;align-items:center}
+.row.sub{opacity:.95}
+.row .label{font-weight:600}
+a{color:#1149c9;text-decoration:none} a:hover{text-decoration:underline}
+.small{font-size:12px}
+</style>
+</head><body><div class="wrap">
+  <h1>Grove: Total System Performance</h1>
+  <div class="muted">Grade: B · Score: 85</div>
+
+  <div class="card">
+    <div class="grid">
+      <div class="row"><span class="label">System status (all checks)</span><span class="badge blue">blue</span><span>100%</span></div>
+
+      <div class="row"><span class="label">GitHub (local + connector readiness)</span><span class="badge green" title="green: remote reachable, in-sync-ish (ahead=0)">green: remote reachable, in-sync-ish (ahead=0)</span><span>85%</span></div>
+      <div class="row sub"><span class="label">↳ [sync]</span><span class="badge red" title="[sync] wrote docs/status/git-sync.json">[sync] wrote docs/status/git-sync.json</span><span>40%</span></div><div class="row sub"><span class="label">↳ github-connect</span><span class="badge green" title="green: github-connect basics ok">green: github-connect basics ok</span><span>85%</span></div><div class="row sub"><span class="label">↳ remote</span><span class="badge green" title="green: remote reachable">green: remote reachable</span><span>85%</span></div><div class="row sub"><span class="label">↳ sync</span><span class="badge green" title="green: sync coverage 92% (tracked=198, modified=14)">green: sync coverage 92% (tracked=198, modified=14)</span><span>85%</span></div><div class="row sub"><span class="label">↳ untracked</span><span class="badge yellow" title="yellow: untracked local files (add → GH): 1199">yellow: untracked local files (add → GH): 1199</span><span>60%</span></div><div class="row sub"><span class="label">↳ remote-only</span><span class="badge yellow" title="yellow: remote-only files (pull/archive): 0">yellow: remote-only files (pull/archive): 0</span><span>60%</span></div><div class="row sub"><span class="label">↳ ahead=0</span><span class="badge green" title="green: ahead=0 behind=0">green: ahead=0 behind=0</span><span>85%</span></div>
+
+      <div class="row"><span class="label">Crypto (sealed bundles)</span><span class="badge green" title="green: encrypted bundles present">green: encrypted bundles present</span><span>85%</span></div>
+      <div class="row sub"><span class="label">↳ key expiry</span><span class="badge yellow" title="yellow: key expiry unknown">yellow: key expiry unknown</span><span>60%</span></div>
+
+      <div class="row"><span class="label">Chats imported</span><span class="badge green" title="green: imported (47 files)">green: imported (47 files)</span><span>85%</span></div>
+      <div class="row"><span class="label">WFB scan</span><span class="badge green" title="green">green</span><span>85%</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="grid">
+      <div class="row"><span class="label">Reuse ratio (reused/total)</span><span class="muted">0</span><span></span></div>
+      <div class="row"><span class="label">Problems freshness (hours)</span><span class="muted">81</span><span></span></div>
+      <div class="row"><span class="label">DB detect</span><span class="muted">unknown</span><span></span></div>
+      <div class="row"><span class="label">Indexes & views</span>
+        <span>
+          <a href="../wfb/wfb.graph.json">raw graph</a> ·
+          <a href="wfb-index.html">WFB index</a> · <a href="wfb-graph.html">WFB graph</a>
+        </span><span></span>
+      </div>
+      <div class="row small"><span class="label">Legend</span>
+        <span class="muted">GitHub sub-rows show: reachability, sync %, untracked local (to add), remote-only (to pull/archive), and ahead/behind. Crypto sub-rows show named buckets (e.g., “handoff archives (3)”) plus key-expiry status.</span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+</div></body></html>

@@ -2,7 +2,7 @@
 
 A 'view' is python code (a function or callable class) responsible for
 producing a HTML page for a user to view in response for going to a given URL
-in their browser. In Evennia lingo, it's similar in function to a Command, with
+in their browser. In Mistwood lingo, it's similar in function to a Command, with
 the input/args being the URL/request and the output being a new web-page.
 
 The urls.py file contains regular expressions that are run against the provided
